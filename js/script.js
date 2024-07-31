@@ -19,15 +19,14 @@ const searchBtn = async () => {
     }
 
     const data = await response.json();
+    const recipes = data.meals;
 
-    if(!data.meals)
+    if(!recipes)
     {
       recipeResultDiv.innerHTML = '<p>No recipes found!</p>';
       return;
     }
-
-    const recipes = data.meals;
-
+    
     recipeResultDiv.innerHTML = '';
 
     recipes.forEach(recipe => {
