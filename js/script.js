@@ -26,11 +26,15 @@ const searchBtn = async () => {
       recipeResultDiv.innerHTML = '<p>No recipes found!</p>';
       return;
     }
-    
+
     recipeResultDiv.innerHTML = '';
 
     recipes.forEach(recipe => {
       const recipeDiv = document.createElement('div');
+      recipeDiv.style.border = '1px solid black';
+      recipeDiv.style.borderRadius = '8px';
+      recipeDiv.style.padding = '8px';
+      recipeDiv.style.margin = '8px';
       recipeDiv.innerHTML = `
         <h3>${recipe.strMeal}</h3>
         <img src=${recipe.strMealThumb} width='100%'>
