@@ -21,13 +21,18 @@ const searchBtn = async () => {
     const data = await response.json();
     const recipes = data.meals;
 
+    recipeResultDiv.innerHTML = '';
+
     if(!recipes)
     {
       recipeResultDiv.innerHTML = '<p>No recipes found!</p>';
       return;
     }
 
-    recipeResultDiv.innerHTML = '';
+    const resultHeading = document.createElement('h2');
+    resultHeading.textContent = `Results for "${query}"`;
+    resultHeading.style.marginBottom = '10px';
+    recipeResultDiv.appendChild(resultHeading);
 
     recipes.forEach(recipe => {
       const recipeDiv = document.createElement('div');
